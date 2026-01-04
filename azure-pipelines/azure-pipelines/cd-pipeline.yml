@@ -1,0 +1,9 @@
+stages:
+- stage: GitOps
+  displayName: Update Kubernetes Manifests Repo
+  jobs:
+  - job: UpdateManifests
+    steps:
+    - script: |
+        echo "Updating image tag in GitOps repository"
+      displayName: GitOps Update Step
