@@ -1,4 +1,4 @@
-name: Voting App CI Pipeline
+name: Voting App CI
 
 on:
   push:
@@ -10,18 +10,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Build Vote Image
-        run: docker build -t voting-app ./vote
+        run: docker build -t vote-app ./vote
 
   build-result:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Build Result Image
         run: docker build -t result-app ./result
@@ -30,8 +28,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Source Code
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
       - name: Build Worker Image
         run: docker build -t worker-app ./worker
